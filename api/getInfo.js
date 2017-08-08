@@ -16,6 +16,8 @@ function getInfo(hostingId) {
   var requestConfigs = _.assign({}, configs.DEFAULT_REQUEST_CONFIGS, {
     url: configs.HOSTING_INFO_URL + '/' + hostingId + '?' + serialize(configs.DEFAULT_REQUEST_PARAMS)
   });
+  
+  console.log("request url: " + url);
 
   return new Promise(function(resolve, reject) {
     // Make request to parse hosting info
