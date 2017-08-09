@@ -10,7 +10,8 @@ var AIRBNB_PREFIX = 'https://www.airbnb.com',
     DEFAULT_REQUEST_CONFIGS = {
       headers: {
         'User-Agent': 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36'
-      }
+      },
+      timeout: 3000
     },
     DEFAULT_REQUEST_PARAMS = {
       key: secrets.API_KEY
