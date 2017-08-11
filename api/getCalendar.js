@@ -54,9 +54,13 @@ function getCalendar(hostingId, options) {
 
     // Make request
     request(requestConfigs, function(err, res, body) {
-      if (!err && res.statusCode == 200) {
-        resolve(JSON.parse(body));
-      } else if (err) {
+      if (!err) {
+        if (res.statusCode == 200) {
+            resolve(JSON.parse(body));
+        } else {
+ +        reject(body);
+        }         
+      } else  {
         reject(err);
       }
     });
