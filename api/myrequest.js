@@ -29,7 +29,7 @@ function myrequest (requestConfigs, callback) {
                 callback (true, res.statusCode);
             }
         }
-   }
+   });
     
 }
 
