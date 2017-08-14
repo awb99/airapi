@@ -1,6 +1,6 @@
 var request = require('request');
 
-function myrequest (requestConfigs, callback)
+function myrequest (requestConfigs, callback) {
     request(requestConfigs, function(err, res, body) {
 
         if (err) {
@@ -31,5 +31,6 @@ function myrequest (requestConfigs, callback)
         }
    }
     
+}
 
-    module.exports.myrequest = myrequest;
+module.exports.myrequest = myrequest;
