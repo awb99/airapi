@@ -4,7 +4,9 @@ function myrequest (requestConfigs, callback) {
     request(requestConfigs, function(err, res, body) {
 
         if (err) {
-            callback (true, res.statusCode);
+            console.log(res);
+            console.log(body);
+            callback (true, "ERR");
             return;
         }
 
