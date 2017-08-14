@@ -12,7 +12,14 @@ function myrequest (requestConfigs, callback) {
             if (res.statusCode == 200) {
                 try {
                   var data = JSON.parse(body);
-                    callback (false, data);
+                  //console.log("Parse: success");
+                  callback (false, data);
+                }
+                catch (ex) {
+                    console.log("JSON parse exception. Body: " + body);
+                   callback (true, "200-parseError");
+                }
+                
                     /*if (data.success) {
                         callback (false, data);
                     }
@@ -21,10 +28,7 @@ function myrequest (requestConfigs, callback) {
                     }*/
                   
                 }
-                catch (ex) {
-                    console.log("JSON parse exception. Body: " + body);
-                   callback (true, "200-parseError");
-                }
+              
             }
             else {
                 callback (true, res.statusCode);
