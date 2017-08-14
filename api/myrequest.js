@@ -1,7 +1,4 @@
-
-
-
-
+var request = require('request');
 
 function myrequest (requestConfigs, callback)
     request(requestConfigs, function(err, res, body) {
