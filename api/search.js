@@ -31,6 +31,9 @@ var request = require('request'),
  *   neighborhoods: {Array}, e.g: ['Belltown', 'Queen Anne']
  * }
  */
+
+var myrequest = require("./myrequest").myrequest;
+
 function search(options) {
 
   return new Promise(function(resolve, reject) {
@@ -44,17 +47,16 @@ function search(options) {
       url: configs.SEARCH_URL + '?' + serialize(options)
     });
 
+    console.log("airbnb room.discover request url: " + requestConfigs.url);
+
     // Make request
-    request(requestConfigs, function(err, res, body) {
-      
+    myrequest(requestConfigs, (err, data) => {
       if (!err) {
         if (res.statusCode == 200) {
-            resolve(JSON.parse(body));
-        } else {
- +        reject(body);
-        }         
+            resolve(data);
+        }       
       } else  {
-        reject(err);
+        reject(data);
       }
             
     });

@@ -5,6 +5,7 @@ var request = require('request'),
   Promise = require('bluebird');
 
 
+var myrequest = require("./myrequest").myrequest;
 /**
  * Get info for a particular hosting
  * @param  {Number, String} hosting - Hosting ID
@@ -21,15 +22,11 @@ function getInfo(hostingId) {
 
   return new Promise(function(resolve, reject) {
     // Make request to parse hosting info
-    request(requestConfigs, function(err, res, body) {
+    myrequest(requestConfigs, (err, data) => {
       if (!err) {
-        if (res.statusCode == 200) {
-            resolve(JSON.parse(body));
-        } else {
- +        reject(body);
-        }         
+          resolve(data);
       } else  {
-        reject(err);
+        reject(data);
       }
     });
   });

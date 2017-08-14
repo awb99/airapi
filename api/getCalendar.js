@@ -4,6 +4,8 @@ var request = require('request'),
   serialize = require('../helpers/serialize'),
   Promise = require('bluebird');
 
+var myrequest = require("./myrequest").myrequest;
+
 /**
  * Get calendar for a given hosting ID
  * @param  {[Number/String]} hosting ID         [description]
@@ -53,16 +55,12 @@ function getCalendar(hostingId, options) {
       });
 
     // Make request
-    request(requestConfigs, function(err, res, body) {
+    myrequest(requestConfigs,(err, data) => {
       if (!err) {
-        if (res.statusCode == 200) {
-            resolve(JSON.parse(body));
+            resolve(data);
         } else {
- +        reject(body);
+ +        reject(data);
         }         
-      } else  {
-        reject(err);
-      }
     });
   });
 }
