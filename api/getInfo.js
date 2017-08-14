@@ -18,7 +18,7 @@ function getInfo(hostingId) {
     url: configs.HOSTING_INFO_URL + '/' + hostingId + '?' + serialize(configs.DEFAULT_REQUEST_PARAMS)
   });
   
-  console.log("request url: " + requestConfigs.url);
+  console.log("airapi room.getInfo request url: " + requestConfigs.url);
 
   return new Promise(function(resolve, reject) {
     // Make request to parse hosting info

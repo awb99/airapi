@@ -16,8 +16,8 @@ function myrequest (requestConfigs, callback) {
                   callback (false, data);
                 }
                 catch (ex) {
-                    console.log("JSON parse exception. Body: " + body);
-                   callback (true, "200-parseError");
+                   console.log("JSON parse exception. Body: " + body);
+                   callback (true, "200-JSONparseError");
                 }
             }
             else {

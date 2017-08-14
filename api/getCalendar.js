@@ -54,6 +54,9 @@ function getCalendar(hostingId, options) {
         url: configs.AVAILABILITY_URL + '?' + serialize(searchOptions)
       });
 
+    console.log("airapi room.getCalendar request url: " + requestConfigs.url);
+
+
     // Make request
     myrequest(requestConfigs,(err, data) => {
       if (!err) {

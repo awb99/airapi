@@ -52,9 +52,7 @@ function search(options) {
     // Make request
     myrequest(requestConfigs, (err, data) => {
       if (!err) {
-        if (res.statusCode == 200) {
-            resolve(data);
-        }       
+        resolve(data);
       } else  {
         reject(data);
       }
