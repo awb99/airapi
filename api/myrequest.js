@@ -19,23 +19,12 @@ function myrequest (requestConfigs, callback) {
                     console.log("JSON parse exception. Body: " + body);
                    callback (true, "200-parseError");
                 }
-                
-                    /*if (data.success) {
-                        callback (false, data);
-                    }
-                    else {
-                        callback (error, "200-parseOk but not success: " + body);
-                    }*/
-                  
-                }
-              
             }
             else {
                 callback (true, res.statusCode);
             }
         }
    });
-    
 }
 
 module.exports.myrequest = myrequest;
